@@ -1,0 +1,22 @@
+	
+<div class="form-group">
+	<%= form_for @image do |f| %>
+		<%= f.label :description  %><br>
+		<%= f.text_field :description, class: 'form-control' %>
+		<%- if @image.errors[:description].any? %>
+			<div class="alert alert-danger">
+				<p class="alert-heading">Completa la descripción </p>
+			</div>
+		<% end %>
+		<br>
+		<%= f.label :Imagen  %><br>
+		<%= f.file_field :picture %>
+		<br>
+		<%- if @image.errors[:picture].any? %>
+			<div class="alert alert-danger">
+				<p class="alert-heading"> Subi una imagen </p>
+			</div>
+		<% end %>
+		<%= f.submit 'Enviar', :class => 'btn btn-primary'	 %>
+	<% end %>
+</div>

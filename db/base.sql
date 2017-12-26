@@ -1,1 +1,1 @@
-CREATE DATABASE organizador_development;
+SELECT * FROM insta.images;

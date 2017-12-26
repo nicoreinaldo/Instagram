@@ -1,0 +1,37 @@
+
+<% if user_signed_in? %>
+	<div class="row">
+		<div class="col-4">
+			<img  class="avatar" src="assets/perfil.jpg">
+			<!-- esta clase le da el borde en el perfil-->	
+		</div>
+		
+		<div class="col-8">
+			<h1><%= current_user.name %> <button type="button" class="btn btn-default btn-sm ">Editar Perfil</button></h1>
+
+			<div>
+				<ul class="nav">
+					<li style="margin-right: 15px">
+						<p><strong><%= @images.count %></strong> Publicaciones</p>
+					</li>
+					<li style="margin-right: 15px">
+						<p><strong>428</strong> Seguidores</p>
+					</li>
+					<li style="margin-right: 15px">
+						<p><strong>472</strong> Seguidos</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- este va y pide en localhost:3000/images-->
+	<div class="row">
+		<%= render @images %>		
+	</div>
+	<%= will_paginate @images %><br>
+	<%= link_to 'Nueva Publicacion',new_image_path, class:'btn btn-primary btn-sm'%>
+	<% else %>
+	<br>
+	<h1>Instagram</h1>
+	<h5>Registrate para disfrutar de la mejor Red Social!</h5>
+<% end %>
