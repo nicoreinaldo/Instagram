@@ -1,0 +1,9 @@
+	
+<div class="form-group">
+	<%= form_for @user do |f| %>
+	<%= f.file_field :perfil, accept: 'image/png, image/jpg' %>
+		<%= f.submit 'Enviar', :class => 'btn btn-primary'	 %>
+	<% end %>
+</div>
+
+	

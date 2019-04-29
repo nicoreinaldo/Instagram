@@ -6,4 +6,7 @@ class User < ApplicationRecord
 
   #esto hace referencia a que el usuario tiene muchas imagenes
   has_many :images
+
+  mount_uploader :perfil, PerfilUploader
+  #has_one :perfil
 end

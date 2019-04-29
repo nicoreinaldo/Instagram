@@ -22,6 +22,7 @@ gem 'mysql2', '>= 0.3.18', '< 0.5'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 gem 'uglifier', '>= 1.3.0'
+gem 'nifty-generators'
 #sass y css
 group :assets do
   gem 'sass-rails'
@@ -56,3 +57,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+

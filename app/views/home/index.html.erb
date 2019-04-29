@@ -1,13 +1,14 @@
 
 <% if user_signed_in? %>
 	<div class="row">
-		<div class="col-4">
-			<img  class="avatar" src="assets/perfil.jpg">
-			<!-- esta clase le da el borde en el perfil-->	
+		<div class="col-4" >
+			<!-- clase avatar le da el borde en el perfil-->	
+			<%= image_tag current_user.perfil.url ,class:"avatar"%> 
+			<!-- <img  class="avatar" src="assets/default.jpg"> -->
 		</div>
 		
 		<div class="col-8">
-			<h1><%= current_user.name %> <button type="button" class="btn btn-default btn-sm ">Editar Perfil</button></h1>
+			<h1><%= current_user.name %>  <%= link_to "Editar perfil", edit_user_registration_path , class:'btn btn-default btn-sm' ,type:'button'%> </h1>
 
 			<div>
 				<ul class="nav">
@@ -15,7 +16,7 @@
 						<p><strong><%= @images.count %></strong> Publicaciones</p>
 					</li>
 					<li style="margin-right: 15px">
-						<p><strong>428</strong> Seguidores</p>
+						<p><strong>750</strong> Seguidores</p>
 					</li>
 					<li style="margin-right: 15px">
 						<p><strong>472</strong> Seguidos</p>
