@@ -14,7 +14,7 @@ class ImagesController < ApplicationController
 		@image = current_user.images.new image_params 	
 		
 		if @image.save	
-			return redirect_to "http://localhost:3001"
+			return redirect_to "http://localhost:3000"
 		end
 		render :new
 	end
