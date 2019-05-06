@@ -1,24 +1,33 @@
 class RegistrationsController < Devise::RegistrationsController
-before_action :perfil, only: [:show, :edit, :update, :destroy]
+	before_filter :configure_permitted_parameters
 
-	def new
-		super
-	end
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up).push(:email, :password)
+    # devise_parameter_sanitizer.for(:account_update).push(:name, :surname, :email, :avatar)
+  end
+  def create
+    super
+  end
 
+  def after_sign_in_path_for(resource)
+    request.env['omniauth.origin'] || stored_location_for(resource) || root_path
+  end
 
-	def edit
-		super
-	end
+  protected
 
-	def create
-		# super	
-		# @user = current_user
-		# @user.perfil = "default.jpg"
-		# @user.save
-	end
+  def after_update_path_for(resource)
+    user_path(resource)
+  end
 
-	def user_params
-		params.require(:user).permit :perfil
-	end
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
 
+  def sign_up_params
+    params.require(:user).permit(:email, :password)
+  end
+
+  def account_update_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :current_password, :perfil)
+  end
 end
